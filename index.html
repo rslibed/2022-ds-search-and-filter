@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      2022 Esri Developer Summit: Find What You Are Looking For: Optimizing
+      Search and Filtering in Apps
+    </title>
+  </head>
+  <link
+    rel="stylesheet"
+    href="https://js.arcgis.com/4.22/esri/themes/light/main.css"
+  />
+  <script
+    type="module"
+    src="https://unpkg.com/@esri/calcite-components@1.0.0-beta.77/dist/calcite/calcite.esm.js"
+  ></script>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://unpkg.com/@esri/calcite-components@1.0.0-beta.77/dist/calcite/calcite.css"
+  />
+  <script src="https://js.arcgis.com/4.22/"></script>
+
+  <link rel="stylesheet" href="./main.css" />
+  <body>
+    <calcite-shell>
+      <header id="appHeader" slot="header">
+        <h1>
+          2022 Esri Developer Summit: Find What You Are Looking For: Optimizing
+          Search and Filtering in Apps
+        </h1>
+      </header>
+      <calcite-shell-panel slot="primary-panel">
+        <calcite-panel>
+          <header slot="header-content">Select fuel type to filter</header>
+          <calcite-pick-list multiple="true"></calcite-pick-list>
+        </calcite-panel>
+      </calcite-shell-panel>
+      <div id="viewDiv"></div>
+    </calcite-shell>
+    <script src="./index.js"></script>
+  </body>
+</html>
