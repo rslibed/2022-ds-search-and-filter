@@ -52,17 +52,10 @@ function App() {
     if (!view) {
       return;
     }
+    const layer = view.map.findLayerById(layerId);
 
     // STEP 1: CREATE SEARCH SOURCE
-    // const layer = view.map.findLayerById(layerId);
-    // const loadLayerView = async () => {
-    //   const loadedLayerView = await view.whenLayerView(layer);
-    //   setFLayerView(loadedLayerView);
-    // };
-
-    // loadLayerView();
-
-    // const layerSearchSource = new LayerSearchSource({
+    // const source = new LayerSearchSource({
     //   layer,
     //   placeholder: "Search for a country name...",
     //   displayField: "fuel1",
@@ -72,10 +65,10 @@ function App() {
     //   maxSuggestions: 6
     // });
 
-    // Step 2: CREATE SEARCH WIDGET
+    // Step 2a: CREATE SEARCH WIDGET
     // const searchWidget = new Search({
     //   view,
-    //   sources: [layerSearchSource],
+    //   sources: [source],
     //   includeDefaultSources: false
     // });
 
@@ -95,11 +88,20 @@ function App() {
       expanded: true
     });
 
+    // Step 2b: CREATE SEARCH WIDGET
     // view.ui.add(search, "top-right");
     view.ui.add(legend, "bottom-left");
 
-    setLayerSearchSource(layerSearchSource);
+    // Step 2c: CREATE SEARCH WIDGET
+    // setLayerSearchSource(source);
     setLegend(legendWidget);
+
+    const loadLayerView = async layer => {
+      const loadedLayerView = await view.whenLayerView(layer);
+      setFLayerView(loadedLayerView);
+    };
+
+    loadLayerView(layer);
   }, [view]);
   return (
     <CalciteShell>

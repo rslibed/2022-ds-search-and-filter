@@ -82,7 +82,7 @@ function SidePanel(props) {
       return;
     }
 
-    // STEP 6: Set up pick list change event listener to handle map filter
+    // STEP 7: Set up pick list change event listener to handle filter
     // pickList.current.addEventListener(
     //   "calciteListChange",
     //   pickListChangeCallback
@@ -111,7 +111,8 @@ function SidePanel(props) {
     <CalciteShellPanel slot="primary-panel">
       <CalcitePanel>
         <header slot="header-content">Select fuel type to filter</header>
-        <CalcitePickList ref={pickList} multiple={true}>
+        {/* Step 6: Add pick list UI */}
+        {/* <CalcitePickList ref={pickList} multiple={true}>
           {legendInfos?.map(legendInfo => (
             <CalcitePickListItem
               key={legendInfo.value}
@@ -119,7 +120,7 @@ function SidePanel(props) {
               label={legendInfo.label}
             ></CalcitePickListItem>
           ))}
-        </CalcitePickList>
+        </CalcitePickList> */}
       </CalcitePanel>
     </CalciteShellPanel>
   );
